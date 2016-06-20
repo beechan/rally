@@ -1,10 +1,14 @@
 <h1>ひま時間登録画面</h1>
+
+<h3>ひま時間一覧</h3>
 <% @schedules.each do |schedule| %>
-  <%= schedule.starting_time %>
-  <%= schedule.end_time %>
+
+  開始時刻:<%= schedule.starting_time %>　終了時刻:<%= schedule.end_time %>
+  
   <br>
 <% end %>
 
+  <br>
 <%= form_for(@schedule) do |f| %>
   開始時間:
   <div class='input-group date schedule_starting_time'>
@@ -23,6 +27,7 @@
         </span>
       </span>
   </div>
+  <br>
   <%= f.submit %>
 <% end %>
 
