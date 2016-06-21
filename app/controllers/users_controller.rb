@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    #ower_idをrelationshipsに登録
+    
   end
   
   def create
