@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'schedules/new'
+
   root to: 'static_pages#home'
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
@@ -8,4 +10,5 @@ Rails.application.routes.draw do
   resources :users
   resources :events
   resources :sessions, only: [:new, :create, :destroy]
+  resources :schedules
 end

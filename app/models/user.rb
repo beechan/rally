@@ -9,4 +9,7 @@ class User < ActiveRecord::Base
     
     has_many :relationships
     has_many :events, through: :relationships
+
+    has_many :schedules
+
 end

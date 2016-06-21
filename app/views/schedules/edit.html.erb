@@ -1,0 +1,11 @@
+<h1>ひま時間の編集</h1>
+
+<%= form_for(@schedule) do |f| %>
+  開始時間:
+      <%= f.text_field :starting_time, class: 'form-control date-picker' %>
+
+  終了時間:
+      <%= f.text_field :end_time, class: 'form-control date-picker' %>
+  <br>
+  <%= f.submit %>
+<% end %>
