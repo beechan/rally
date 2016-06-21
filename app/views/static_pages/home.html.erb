@@ -12,35 +12,30 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <td>開始日</td>
+                            <td>開始時間</td>
+                            <td>終了時間</td>
+                            <td>編集</td>
                         </tr>
                     </thead>
                     <tbody>
+                        <% @schedules.each do |schedule| %>
                         <tr>
-                            <td>%%日程%%</td>
-                            <td>%%開始時間%%</td>
-                            <td>%%終了時間%%</td>
-                            <td>edit / destroy</td>
+                            <td><%= convert_date_from_datetime(schedule.starting_time)%></td>
+                            <td><%= convert_time_from_datetime(schedule.starting_time)%></td>
+                            <td><%= convert_time_from_datetime(schedule.end_time)%></td>
+                            <td><%= link_to "edit" , edit_schedule_path(schedule) %>
+    <%= link_to "destroy" , schedule , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+    </td>
                         </tr>
-                        <tr>
-                            <td>%%日程%%</td>
-                            <td>%%開始時間%%</td>
-                            <td>%%終了時間%%</td>
-                            <td>edit / destroy</td>
-                        </tr>
-                        <tr>
-                            <td>%%日程%%</td>
-                            <td>%%開始時間%%</td>
-                            <td>%%終了時間%%</td>
-                            <td>edit / destroy</td>
-                        </tr>                    
+                        <% end %>
                     </tbody>
                 </table>
             </div>
             
             
             <div style="height:230px; background-color:#aaa; border-radius:15px; padding:15px;">
-                新規作成・編集フォーム
-                ここにformが来るようにしましょう。
+                <%= render 'shared/schedule_generate' %>
             </div>
 
 
