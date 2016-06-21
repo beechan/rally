@@ -4,7 +4,9 @@
 <% @schedules.each do |schedule| %>
 
   開始時刻:<%= schedule.starting_time %>　終了時刻:<%= schedule.end_time %>
-  
+   (<%= link_to "edit" , edit_schedule_path(schedule) %>
+    <%= link_to "destroy" , schedule , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
+    )
   <br>
 <% end %>
 
