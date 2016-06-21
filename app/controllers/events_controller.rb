@@ -1,19 +1,32 @@
 class EventsController < ApplicationController
-  before_action :logged_in_user, only: [:edit,:update]
+  before_action :logged_in_user, only: [:edit,:update,:new,:create]
   def show
   end
   
   def new
     @event = Event.new
-    @user = User.all
+    
+    @users = User.where.not("id = ?",current_user.id)
+    
   end
   def create
-    @event = Event.new(event_params)
-    if @event.save
+    event = Event.new(event_params)
+    event.owner_id = current_user.id
+    params[:post][:user_ids].each do |user_id|
+      next if user_id.blank?
+      
+      relationship = Relationship.new
+      relationship.visitor_id = user_id
+      event.relationships << relationship
+    end
+
+    if event.save
       flash[:success] = "Welcome to the Sample App!"
       redirect_to root_path
     else
-      render root_path
+      @event = Event.new
+      @users = User.where.not("id = ?",current_user.id)
+      render "new"
     end
   end
 

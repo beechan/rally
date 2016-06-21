@@ -12,4 +12,11 @@ class User < ActiveRecord::Base
 
     has_many :schedules
 
+    has_many :event_relationships, class_name: "Relationship",
+                                   foreign_key: "visitor_id",
+                                   dependent: :destroy
+    #参加予定のイベント                               
+    has_many :perticipate_events,through: :event_relationships,
+                                 source: :event
+    
 end

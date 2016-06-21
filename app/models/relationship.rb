@@ -1,5 +1,4 @@
 class Relationship < ActiveRecord::Base
-    
     belongs_to :user
-    belogns_to :event
+    belongs_to :event
 end
