@@ -5,14 +5,15 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
+    @user = User.all
   end
   def create
-    @event = Event.new(user_params)
+    @event = Event.new(event_params)
     if @event.save
       flash[:success] = "Welcome to the Sample App!"
-      redirect_to @event
+      redirect_to root_path
     else
-      render 'new'
+      render root_path
     end
   end
 
@@ -34,7 +35,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:user).permit(:owner_id, :event_name, :place,
+    params.require(:event).permit(:owner_id, :event_name, :place,
                                  :content,
                                  :event_starting_time,:event_end_time)
   end
