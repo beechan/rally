@@ -2,7 +2,7 @@ class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
       t.integer :owner_id #イベント主催者ID
-      t.string :event_name　#イベント名
+      t.string :event_name #イベント名
       t.string :place #/*イベントの場所*/
       t.string :content #/*イベント内容*/
       t.datetime :event_starting_time #/*イベント開始時刻*/

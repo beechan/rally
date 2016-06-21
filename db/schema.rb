@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160620013726) do
 
   create_table "events", force: :cascade do |t|
     t.integer  "owner_id"
-    t.string   "event_name　"
+    t.string   "event_name"
     t.string   "place"
     t.string   "content"
     t.datetime "event_starting_time"
