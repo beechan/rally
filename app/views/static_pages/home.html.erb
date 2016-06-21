@@ -47,7 +47,8 @@
                         <h3 class="panel-title">通知</h3>
                     </div>
                     <div class="panel-body" style="height:100px;">
-                        %%ここに出力%%
+                        
+                     
                     </div>
                 </div>
             </div>
@@ -57,11 +58,14 @@
                         <h3 class="panel-title">予定一覧</h3>
                     </div>
                     <div class="panel-body" style="height:200px;">
-                        <li>%%ここに出力%%</li>
-                        <li>%%ここに出力%%</li>
-                        <li>%%ここに出力%%</li>
-                        <li>%%ここに出力%%</li>
-                        <li>%%ここに出力%%</li>
+                         [招待イベント]<br>
+                         <%@invite_events.each do |event|%>
+                            <p><%=event.event_name%></p>
+                        <%end%>
+                         [予定イベント]<br>
+                         <%@yotei_events.each do |event|%>
+                            <p><%=event.event_name%></p>
+                        <%end%>
                     </div>
                 </div>
             </div>
@@ -80,6 +84,7 @@
                     </div>
                 </div>
             </div>
+            <button type="button" class="btn btn-warning"><%= link_to "イベント作成",new_event_path %></button>
         </div>
     </div>
 </div>
