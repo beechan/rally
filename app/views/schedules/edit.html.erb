@@ -2,22 +2,10 @@
 
 <%= form_for(@schedule) do |f| %>
   開始時間:
-  <div class='input-group date schedule_starting_time'>
       <%= f.text_field :starting_time, class: 'form-control date-picker' %>
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-calendar">
-        </span>
-      </span>
-  </div>
 
   終了時間:
-  <div class='input-group date schedule_end_time'>
       <%= f.text_field :end_time, class: 'form-control date-picker' %>
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-calendar">
-        </span>
-      </span>
-  </div>
   <br>
   <%= f.submit %>
 <% end %>
