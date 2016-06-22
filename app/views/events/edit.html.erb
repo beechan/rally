@@ -1,4 +1,31 @@
-<table class="table table-condensed">
-  <tr class="active"><td>.active</td><td>This is a active message.</td></tr>
+
+<h1>イベントの確定画面</h1>
+<%= form_for(@event) do |f| %>
+  <%= f.label "イベント名" %>
+  <%= f.text_field :event_name, class: 'form-control' %>
+
+  <%= f.label "場所" %>
+  <%= f.email_field :place, class: 'form-control' %>
   
-</table>
+  <%= f.label "内容" %>
+  <%= f.text_area :content, class: 'form-control' %>
+  
+  開始時間:
+  <div class="row">
+    <div class="col-sm-12">
+        <%= f.text_field :event_starting_time, class: 'form-control datetime' %>
+    </div>
+  </div>
+  
+  開始時間:
+  <div class="row">
+    <div class="col-sm-12">
+        <%= f.text_field :event_end_time, class: 'form-control datetime' %>
+    </div>
+  </div>
+  <%= f.label "ひとこと" %>
+  
+  <%= f.submit class: "btn btn-sm btn-primary" %>
+<% end %>
+
+  

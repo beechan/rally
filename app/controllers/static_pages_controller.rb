@@ -2,6 +2,7 @@ class StaticPagesController < ApplicationController
   before_action :logged_in_user
   before_action :set_schedule, only: [:edit, :update, :destroy]
   def home
+    @owner_events = Event.all.where(owner_id: current_user.id)
     @schedule = Schedule.new
     @schedules = Schedule.all
     @invite_events = []

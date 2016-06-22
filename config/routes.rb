@@ -18,6 +18,7 @@ Rails.application.routes.draw do
          get 'will_create_true'
          get 'will_create_false'
          get 'attendance'
+         get 'confirm'
        end
   end
   resources :static_pages

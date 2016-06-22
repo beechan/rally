@@ -58,12 +58,17 @@
                     <div class="panel-heading">
                         <h3 class="panel-title">予定一覧</h3>
                     </div>
+                    
                     <div class="panel-body" style="height:200px;">
-                         [招待イベント]<br>
+                         [幹事]<br>
+                         <%@owner_events.each do |event|%>
+                            <p><%=link_to event.event_name,edit_event_path(event[:id])%></p>
+                         <%end%>
+                         [招待されているイベント]<br>
                          <%@invite_events.each do |event|%>
                             <p><%=link_to event.event_name,will_event_path(event[:id])%></p>
                         <%end%>
-                         [予定イベント]<br>
+                         [参加予定イベント]<br>
                          <%@yotei_events.each do |event|%>
                             <p><%=link_to event.event_name,attendance_event_path(event[:id])%>  <%if event.event_end_time!=nil%>[確定]<%end%></p> 
                         <%end%>
