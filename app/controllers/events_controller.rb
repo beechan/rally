@@ -31,7 +31,13 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event= event.find(params[:id])
+    @event= Event.find(params[:id])
+  end
+  
+  #予定を確定させる
+  def confirm
+    
+    redirect_to root_path
   end
   
   def update
