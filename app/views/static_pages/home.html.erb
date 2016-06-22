@@ -4,18 +4,18 @@
             <div style="height:490px;">
                 <h1>CALENDAR</h1>
                 <h2>
-                    %%何月%%<br />
-                    %%何日%% ~~ %%何日%%
+                    <br />
+                    <br />
                 </h2>
                 
-                暇時間一覧
+                ひま時間一覧
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <td>開始日</td>
-                            <td>開始時間</td>
-                            <td>終了時間</td>
-                            <td>編集</td>
+                            <td>Day</td>
+                            <td>start</td>
+                            <td>end</td>
+                            <td>edit/destroy</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +60,7 @@
                     </div>
                     
                     <div class="panel-body" style="height:200px;">
-                         [幹事]<br>
+                         [幹事のイベント]<br>
                          <%@owner_events.each do |event|%>
                             <p><%=link_to event.event_name,edit_event_path(event[:id])%></p>
                          <%end%>
