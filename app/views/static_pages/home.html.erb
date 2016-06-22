@@ -60,7 +60,7 @@
                     <div class="panel-body" style="height:200px;">
                          [招待イベント]<br>
                          <%@invite_events.each do |event|%>
-                            <p><%=event.event_name%></p>
+                            <p><%=link_to event.event_name,will_event_path(event[:id])%></p>
                         <%end%>
                          [予定イベント]<br>
                          <%@yotei_events.each do |event|%>

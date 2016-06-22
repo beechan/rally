@@ -45,6 +45,21 @@ class EventsController < ApplicationController
     end
   end
 
+  def will
+    @event = Event.find(params[:id])
+  end
+
+  def will_create_true
+    @event = Event.find(params[:id])
+    current_user.event_relationships.where(event_id: @event.id)[0][:event_flag] = true
+    
+    redirect_to root_path
+  end
+  
+  def will_create_false
+    
+  end
+
   private
 
   def event_params

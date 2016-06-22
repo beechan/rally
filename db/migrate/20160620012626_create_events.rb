@@ -8,7 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :event_starting_time #/*イベント開始時刻*/
       t.datetime :event_end_time #/*イベント終了時刻*/
       t.boolean :event_status #/*イベント確定通知..各ユーザのスケジュールへの書き込みフラグ*/
-
+      t.date :event_date #/*イベントの日付*/
       t.timestamps null: false
     end
   end
