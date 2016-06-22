@@ -53,6 +53,7 @@ class StaticPagesController < ApplicationController
   end
   
   def edit
+    @owner_events = Event.all.where(owner_id: current_user.id)
     @schedule = Schedule.find(params[:id])
     @schedules = Schedule.all
     @invite_events = []
