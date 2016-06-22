@@ -24,7 +24,7 @@
                             <td><%= convert_date_from_datetime(schedule.starting_time)%></td>
                             <td><%= convert_time_from_datetime(schedule.starting_time)%></td>
                             <td><%= convert_time_from_datetime(schedule.end_time)%></td>
-                            <td><%= link_to "edit" , edit_schedule_path(schedule) %>
+                            <td><%= link_to "edit" , edit_static_page_path(schedule) %>
     <%= link_to "destroy" , schedule , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
     </td>
                         </tr>
@@ -35,6 +35,7 @@
             
             
             <div style="height:230px; background-color:#aaa; border-radius:15px; padding:15px;">
+
                 <%= render 'shared/schedule_generate' %>
             </div>
 

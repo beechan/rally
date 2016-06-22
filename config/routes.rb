@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :events
   resources :sessions, only: [:new, :create, :destroy]
   resources :schedules
+  resources :static_pages
 end
