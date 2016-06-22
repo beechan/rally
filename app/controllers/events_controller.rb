@@ -21,12 +21,13 @@ class EventsController < ApplicationController
     end
 
     if event.save
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "イベントを作成しました"
       redirect_to root_path
     else
       @event = Event.new
       @users = User.where.not("id = ?",current_user.id)
-      render "new"
+      
+      redirect_to new_event_path
     end
   end
 
@@ -80,7 +81,7 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:owner_id, :event_name, :place,
                                  :content,
-                                 :event_starting_time,:event_end_time)
+                                 :event_starting_time,:event_end_time,:event_date)
   end
   def relation_params
     params.permit(:event_flag)
