@@ -15,6 +15,8 @@ class SchedulesController < ApplicationController
   
   def edit
     @schedule = Schedule.find(params[:id])
+    @schedules = Schedule.all
+    render ''
   end
   
   def destroy

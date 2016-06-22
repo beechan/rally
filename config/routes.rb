@@ -19,4 +19,6 @@ Rails.application.routes.draw do
          get 'will_create_false'
        end
   end
+  resources :static_pages
+
 end
