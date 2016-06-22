@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160620013726) do
     t.datetime "event_starting_time"
     t.datetime "event_end_time"
     t.boolean  "event_status"
+    t.date     "event_date"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end

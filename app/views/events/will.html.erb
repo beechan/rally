@@ -1,0 +1,44 @@
+<h1>招待イベント</h1>
+  <div class="panel panel-default">
+	<div class="panel-heading">
+		イベント名
+	</div>
+	<div class="panel-body">
+		<%=@event.event_name%>
+	</div>
+  </div>
+  
+  <div class="panel panel-default">
+	<div class="panel-heading">
+		場所
+	</div>
+	<div class="panel-body">
+		<%=@event.place%>
+	</div>
+  </div>
+  
+  <div class="panel panel-default">
+	<div class="panel-heading">
+		内容
+	</div>
+	<div class="panel-body">
+		<%=@event.content%>
+	</div>
+  </div>
+  
+  <div class="panel panel-default">
+	<div class="panel-heading">
+		主催者
+	</div>
+	<div class="panel-body">
+		<%=User.find(@event.owner_id).name%>
+	</div>
+  </div>
+  
+  <ul class="list-group list-inline ">
+      <li class = "list-group-item list-group-item-success"><%= link_to "行きたい！",   will_create_true_event_path %></li>
+      <li class = "list-group-item list-group-item-danger"><%= link_to "行きたくない",   '#' %></li>
+  
+  </div>
+  
+  

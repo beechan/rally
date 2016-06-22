@@ -11,5 +11,14 @@ Rails.application.routes.draw do
   resources :events
   resources :sessions, only: [:new, :create, :destroy]
   resources :schedules
+  
+  resources :events do
+      member do
+         get 'will'
+         get 'will_create_true'
+         get 'will_create_false'
+       end
+  end
   resources :static_pages
+
 end

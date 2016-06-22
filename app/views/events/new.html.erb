@@ -11,13 +11,20 @@
       
       <%= f.label "内容" %>
       <%= f.text_field :content, class: 'form-control' %>
-  
       
+      開始時間:
+      <div class="row">
+        <div class="col-sm-12">
+        <%= f.text_field :event_date, class: 'form-control datetime' %>
+        </div>
+      </div>
+  
       <%= f.label "招待するユーザ" %><br />
         <%= collection_check_boxes(:post, :user_ids, @users, :id, :name) do |b| %>
       <%= b.label { b.check_box + b.text } %>
       <% end %>
     
+
       <%= f.submit "Create event", class: "btn btn-primary" %>
     <% end %>
   </div>
