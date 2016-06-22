@@ -44,7 +44,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event.update(event_params)
       # 保存に成功した場合はトップページへリダイレクト
-      redirect_to root_path , notice: 'メッセージを編集しました'
+      redirect_to root_path , notice: '予定を変更しました。'
     else
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
