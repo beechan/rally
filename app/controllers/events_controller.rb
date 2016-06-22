@@ -51,15 +51,24 @@ class EventsController < ApplicationController
 
   def will_create_true
     @event = Event.find(params[:id])
-    current_user.event_relationships.where(event_id: @event.id)[0][:event_flag] = true
-    
+    @relation = current_user.event_relationships.where(event_id: @event.id)[0]
+
+    @relation.event_flag = true
+    @relation.update(relation_params)
     redirect_to root_path
   end
   
   def will_create_false
-    
+    @event = Event.find(params[:id])
+    @relation = current_user.event_relationships.where(event_id: @event.id)[0]
+    @relation.event_flag = false
+    @relation.update(relation_params)
+    redirect_to root_path
   end
-
+  
+  def attendance
+    @event = Event.find(params[:id])
+  end
   private
 
   def event_params
@@ -67,5 +76,10 @@ class EventsController < ApplicationController
                                  :content,
                                  :event_starting_time,:event_end_time)
   end
+  def relation_params
+    params.permit(:event_flag)
+  end
+  
+ 
   
 end
