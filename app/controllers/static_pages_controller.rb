@@ -98,7 +98,8 @@ class StaticPagesController < ApplicationController
   
   def update
     if @schedule.update(schedule_params)
-      redirect_to root_path , notice: 'ひま時間を編集しました'
+      flash[:success] ='ひま時間を編集しました'
+      redirect_to root_path 
     else
       render 'home'
     end
