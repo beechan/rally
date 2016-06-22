@@ -1,4 +1,4 @@
-<h1>招待イベント</h1>
+<h1>予定イベント</h1>
   <div class="panel panel-default">
 	<div class="panel-heading">
 		イベント名
@@ -35,9 +35,19 @@
 	</div>
   </div>
   
-  <ul class="list-group list-inline ">
-      <li class = "list-group-item list-group-item-success"><%= link_to "行きたい！",   will_create_true_event_path %></li>
-      <li class = "list-group-item list-group-item-danger"><%= link_to "行きたくない",   will_create_false_event_path %></li>
+  <div class="panel panel-default">
+	<div class="panel-heading">
+		日時
+	</div>
+	<div class="panel-body">
+	    日付：<%=@event.event_date%><br>
+	    
+	    <%if @event.event_starting_time!=nil%>
+		開始時間：<%=@event.event_starting_time%><br>
+		終了時間：<%=@event.event_end_time%><br>
+		
+		<%else%>
+	
+		<%end%>
+	</div>
   </div>
-  
-  
